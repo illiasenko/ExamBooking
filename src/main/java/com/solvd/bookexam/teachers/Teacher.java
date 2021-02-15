@@ -1,44 +1,28 @@
 package com.solvd.bookexam.teachers;
+
 import com.solvd.bookexam.subjects.Subject;
 
-public class Teacher implements Speak{
+public class Teacher{
 
-    private String fullname;
-    private Subject subject;
+    private String fullName;
 
     public Teacher(){
     }
-    public Teacher(String fullname){
-        this.fullname = fullname;
-    }
-    public Teacher(String fullname, Subject subject){
-        this.fullname = fullname;
-        this.subject = subject;
-    }
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-    public String getFullname() {
-        return fullname;
+    public Teacher(String fullName){
+        this.fullName = fullName;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public String getFullName() {
+        return fullName;
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "fullname='" + fullname + '\'' +
-                ", subject=" + subject +
+                "fullName='" + fullName + '\'' +
                 '}';
     }
-    @Override
-    public void talk() {
-    }
-
 }

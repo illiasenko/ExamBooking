@@ -26,7 +26,7 @@ public class Additional {
         if (subject == null || time == null || subject.isEmpty() || time.isEmpty()) {
             throw new MyException("This date is not available");
         }
-        System.out.println("Please choose the date");
+        System.out.println("Please choose another date ");
 
     }
 }

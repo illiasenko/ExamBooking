@@ -3,11 +3,10 @@ package com.solvd.bookexam.utils;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
-import java.io.IOException;
-import java.nio.file.Paths;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.solvd.bookexam.teachers.Teacher;
+import com.solvd.bookexam.menu.Exam;
 
 
 public class JsonExec {
@@ -41,16 +40,16 @@ public class JsonExec {
             e.printStackTrace();
         }
     }
-    public Teacher convertJsonStrToTeacherPOJO(String jsonStr) {
-        Teacher teacher = null;
+    public Exam convertJsonStrToExamPOJO(String jsonStr) {
+        Exam chosenExam = null;
         try {
             ObjectMapper mapper = new ObjectMapper();
-            teacher = mapper.readValue(jsonStr, Teacher.class);
+            chosenExam = mapper.readValue(jsonStr, Exam.class);
             LOGGER.info("convert to POJO, finished!");
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return teacher;
+        return chosenExam;
     }
 }
