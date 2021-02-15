@@ -81,7 +81,6 @@ public class Menu {
                             }
                             LOGGER.info("You have set exam date :" +" " +examDate);
                             JsonExec js = new JsonExec();
-//                            String jsonSrt = jsonAction.convertJavaToJsonStr(examDate);
                             String jsonStr = js.convertJavaToJsonStr(chosenExam);
                             LOGGER.info(jsonStr);
                             js.convertJavaToJsonFile(chosenExam, "SubjectList.json");
