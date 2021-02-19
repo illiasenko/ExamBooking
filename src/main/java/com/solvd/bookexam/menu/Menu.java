@@ -1,10 +1,7 @@
 package com.solvd.bookexam.menu;
-
 import com.solvd.bookexam.subjects.Subject;
-import com.solvd.bookexam.teachers.MathTeacher;
 import com.solvd.bookexam.teachers.Teacher;
 import com.solvd.bookexam.utils.JsonExec;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,7 +30,7 @@ public class Menu {
                 switch (selection) {
                     case 1:
                         System.out.println("Please enter your name");
-                        Teacher teacher = new MathTeacher();
+                        Teacher teacher = new Teacher();
                         teacher.setFullName(reader.readLine());
                         System.out.println("Please choose your subject");
                         Subject subject = new Subject();
@@ -74,8 +71,8 @@ public class Menu {
                         System.out.println("Enter exam date:");
                         String examDate = reader.readLine();
                         if (chosenExam.getBookExam().containsKey(examDate)) {
-                            boolean ifExamAvailable = chosenExam.getBookExam().get(examDate);
-                            if (ifExamAvailable) {
+                            boolean isExamAvailable = chosenExam.getBookExam().get(examDate);
+                            if (isExamAvailable) {
                                 chosenExam.getBookExam().put(examDate, false);
                                 break;
                             }
@@ -84,7 +81,6 @@ public class Menu {
                             String jsonStr = js.convertJavaToJsonStr(chosenExam);
                             LOGGER.info(jsonStr);
                             js.convertJavaToJsonFile(chosenExam, "SubjectList.json");
-
                         }
                         break;
                     case 3:
@@ -92,8 +88,6 @@ public class Menu {
                         System.out.println("Goodbye");
                 }
             }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
